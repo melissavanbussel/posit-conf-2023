@@ -1,0 +1,230 @@
+---------------------- 
+ My name is Melissa Van Bussel, and I'm an Analyst at Statistics Canada, which is the official statistical agency of Canada. 
+---------------------- 
+ Today, I'll be talking about how my team converted our documentation to Quarto. Doing this conversion was definitely a journey... 
+---------------------- 
+ and not all journeys go according to plan.
+
+Before I get into the details of how we did this conversion, I want to start by sharing a story about another journey that didn't go according to plan.  
+---------------------- 
+ I want to take you back to the DIY-era of the COVID-19 pandemic. 
+---------------------- 
+ During that time, my housemate and I decided to build our own outdoor couch. We found this template online, which looked doable. 
+---------------------- 
+ We bought the wood from the blueprint and coughed up the $85 Home Depot delivery fee because we didn't have a car that would fit all the wood.
+
+[increment]
+
+But once the wood was delivered, we quickly realized that the saw we had wasn't exactly cut out for the job.
+
+[increment] 
+---------------------- 
+ So, we ended up needing to borrow a better saw from a family friend. This made everything *so* much more efficient,  
+---------------------- 
+ and we managed to finish building the couch!  
+---------------------- 
+ Or so we thought.  
+---------------------- 
+ We then realized we had actually only purchased half of the wood that we needed.
+
+It turns out that the instructions that we'd been looking at were actually only for the part of the couch that's missing an arm.  
+---------------------- 
+ So, we headed back to Home Depot and we bought the rest of the wood that we needed. 
+---------------------- 
+ There was just one problem left. 
+
+[increment]
+
+We *still* didn't have a car that could fit the wood in it. 
+
+[increment]
+
+We had paid the $85 delivery fee the first time, but we really didn't want to pay that again. 
+---------------------- 
+ So, we needed to borrow a truck from a friend in order to get the rest of the wood home.  
+---------------------- 
+ :::{.notes}
+ 
+Once we had the right tools, and all of the resources and help that we needed, we were able to successfully finish building the couch.  
+---------------------- 
+ :::{.notes}
+ 
+This journey full of unexpected challenges... 
+---------------------- 
+ :::{.notes}
+ 
+is very similar to the journey that my team had when converting our documentation to Quarto. 
+---------------------- 
+ :::{.notes}
+ 
+Today, I'll share that journey with you, 
+
+[increment]
+
+as well as the challenges we faced along the way. 
+
+[increment]
+
+I'll also share some tips and tricks we used, 
+
+[increment]
+
+all of which are applicable to any kind of Quarto project. 
+---------------------- 
+ I'm going to start by providing some necessary context. 
+---------------------- 
+ I work on a team at Statistics Canada that publishes statistics related to education in Canada. 
+---------------------- 
+ There's a lot of subject-matter and domain knowledge as well as methodological concepts that need to be documented somewhere. 
+---------------------- 
+ This leads to an important distinction in the title of my talk. 
+---------------------- 
+ When I say the word "documentation", I'm *not* talking about our package documentation. 
+---------------------- 
+ I'm talking about documentation that defines terms like these. It's really the subject matter knowledge documentation rather than package documentation. 
+---------------------- 
+ I'm talking about the sort of information that someone would put in a wiki or on confluence, or something like that.  
+---------------------- 
+ Whatever you call yours, we call ours a "user guide", and for us, it was previously stored as a one hundred and twenty page Word document. Scrolling through the document was slow... 
+---------------------- 
+ ...And only one person could edit it at a time, which was a significant challenge for our large team.  
+---------------------- 
+ Our version control was limited to the "Track Changes" feature in Word, which made it challenging to follow updates over time. 
+---------------------- 
+ After last year's conference, we discovered Quarto, which would address those challenges that we were facing with Word.
+
+[increment]
+
+When we started this conversion, we were all TOTAL beginners with Quarto.  
+---------------------- 
+ This meant that, in order for us to effectively complete this task, we needed to use the right tools. When you're working with Quarto, there are many tools that you can use to make your life easier. 
+---------------------- 
+ If you have existing text that you're looking to convert to Quarto,  
+---------------------- 
+ A good first step is to turn the text into markdown if it's not already in that format. 
+---------------------- 
+ We used the pandoc_convert function from the rmarkdown package to automatically convert our word document to a markdown file, which gave us a great starting point.  
+---------------------- 
+ Although this was a great starting point, there were still a lot of formatting changes that we needed to make.  
+---------------------- 
+ In order to make this part of the job easier, we set up custom keyboard shortcuts in our IDEs. For example, we set up a shortcut that made it easier to convert URLs into valid Markdown links. 
+---------------------- 
+ If you're using RStudio as your IDE, you can also set up custom code snippets, which are a great way to automate code insertion for anything you find yourself typing very frequently. 
+---------------------- 
+ This is GREAT for when you want to include cool Quarto features that take a bit longer to type out.  
+---------------------- 
+ I really recommend checking out Tom Mock's GitHub Gist that contains some code snippets that are helpful for working with Quarto. The snippets are provided for both RStudio and VS Code. 
+---------------------- 
+ For any syntax that's trickier to use, there are ways to avoid typing things out manually. Personally, I find the syntax for markdown tables to be extremely finicky. RStudio's visual editor comes in handy for this, or you can also find similar tools online if you're using a different IDE.  
+---------------------- 
+ In situations like these, another great option is generative AI. Both ChatGPT and GitHub CoPilot have a decent knowledge of Quarto syntax
+
+[increment]
+
+and an even stronger understanding of HTML and CSS. You can use generative AI for a variety of use cases, but you'll find it particularly helpful for making your Quarto projects more 
+
+[increment]
+
+aesthetic. 
+---------------------- 
+ If you're interested in trying these tools out, I have a video on my YouTube channel that goes over how to use ChatGPT and GitHub CoPilot as an R programmer 
+---------------------- 
+ Once you're done with *creating* the content, there's something you can do to make *maintaining* the content easier. You can use git for proper version control, 
+
+[increment]
+
+and you can use either GitHub Actions or GitLab pipelines to automate the publishing of your content. 
+
+[increment]
+
+This will make it so that, every single time you make a commit using git, the published version of your content will be automatically updated without you having to do anything.  
+---------------------- 
+ I promise this is easier than it sounds, and I've got videos on my YouTube channel that provide examples of Quarto pipelines using GitHub Actions... 
+---------------------- 
+ and GitLab Pipelines. 
+---------------------- 
+ Or, if you prefer to avoid the whole pipeline thing altogether and you're just looking for somewhere to host your Quarto content for free, I've also got a video on how to use Quarto Pub to publish a website in under a minute. 
+---------------------- 
+ There are SO many great tools that exist for Quarto, but there's still going to be times when you need a little extra help. It's likely that you'll eventually bump into something you want to do that you don't know how to do. When you bump into something like this, you can ask the R community for help. 
+---------------------- 
+ When it comes to asking Quarto questions, there's an order of operations I like to follow. 
+---------------------- 
+ Of course, you should always start by checking the documentation, and Googling your problem to see if anyone's already made a video, blog post, or posted on stack overflow about it. 
+---------------------- 
+ If you can't find what you're looking for, you can reach out to your friends or colleagues, including the friends you make while at conf. 
+
+You can also reach out to your local R user group or R-Ladies chapter if you have one. 
+---------------------- 
+ In fact, if there's anyone in the audience from Ottawa, the R-Ladies Ottawa Chapter will be having our first event in 3 years coming up on September 26th. 
+---------------------- 
+ In our case last summer, though, we were among the first to be using Quarto in our area, so we sometimes needed to seek help using other avenues. 
+---------------------- 
+ Twitter is a great place for this, especially if you use the hashtags #rstats and #QuartoPub.
+
+For example, I tweeted *this*, asking if there's a clever way to render Quarto documents to PDF if the HTML version contains gifs.  
+---------------------- 
+ Within an hour, someone had responded to my question, explaining that there's a way to make content visible or invisible depending on the format of the output.  
+---------------------- 
+ An alternative way you can ask the R community your Quarto questions is by using the Q+A feature on the quarto-cli GitHub repo. 
+---------------------- 
+ This repository is where the development for Quarto happens. When you post a question in the Q+A, it might be answered by members of the R community, or possibly even a member of the Quarto development team. 
+
+If you *are* using the Q+A, though, make sure to be a good neighbour. Always check the Q+A first to see if there's already been a similar question asked by someone else. And while you're doing that, you can help answer any questions that you know the answer to. 
+---------------------- 
+ I've personally found the Q+A to be an incredible resource. There's been times where I've been stumped on syntax for multiple days, and I feel *just about* ready to give up, and I post the question on the Q+A and am able to get an answer within the same day.
+
+For example, we needed to create a bilingual Quarto website, where the user would be able to switch between English + French. To do this, we created a Quarto project that had an English folder and a French folder with identical file structures. Using the Quarto documentation, we found a way to create a toggle that would allow the user to switch between the two languages. The only problem is that the button would bring the user back to the home page when they switched languages, rather than displaying the current page in the opposite language. 
+---------------------- 
+ We asked about this in the Quarto Q+A, and it was suggested that we use Javascript to create a button that would modify the URL when clicked.
+
+After following an example that was shared in the comments, we now have a fully functional bilingual site. 
+---------------------- 
+ As you start to become more and more advanced with Quarto, you may bump into questions that are unanswerable. In other words, you might find yourself trying to do something that isn't yet implemented in Quarto. After all, it's still pretty new!
+
+[increment]
+
+If this is the case, there's a good chance that someone from the Quarto development team will comment on your Q+A indicating this, OR, suggesting a clever workaround. You can also check to see if there's a feature request for whatever you're trying to do. 
+
+[increment]
+
+Personally, I find this to be one of the most exciting parts about using Quarto -- even as an end-user, you could have the opportunity to shape the future of Quarto! 
+---------------------- 
+ Once we had a working first draft, it was time to share our project more broadly with others. This is where we faced our third challenge, and where you're likely to face a challenge too. 
+
+Although *you* might be super passionate about Quarto and confident in its potential, it's still a very new product, and not everyone will be on-board on day one.
+
+Getting support for Quarto *can* be a challenge, and the approach you take may depend on your target audience. 
+---------------------- 
+ With management, a good strategy is to *Show, not tell*. Rather than starting a conversation about quarto, create a cool project *using* Quarto that will WOW people. When someone inevitably asks how you made it, this is when you can explain what Quarto is.  
+---------------------- 
+ Depending on your workplace, you may have the additional challenge of Quarto not currently being on the list of installable software. 
+
+[increment]
+
+In our case last summer, we weren't able to use a version of RStudio that comes pre-packaaged with Quarto. Instead, we used VS Code as an editor while we waited for our RStudio version to be updated. Another option is to use rocker, which is a Docker image that comes pre-packaged with Quarto. 
+---------------------- 
+ In order to get colleagues on board with Quarto, I highly suggest creating templates that you or anyone else can use as a starting point for their project. This will prevent you from needing to reinvent the wheel every time, and and will reduce the barriers that others might face when trying to learn a new tool.  
+---------------------- 
+ You can either start with a pre-existing template, for example from the awesome Quarto repo on GitHub, OR you can create your own. 
+---------------------- 
+ For colleagues that don't have experience with Git or Markdown, a great way to enable collaboration is to use the "Report issue" feature on your Quarto projects.  
+---------------------- 
+ With just a single click of a button, a new issue can be created on the project's GitLab or GitHub repo and the necessary changes can be described in plain text, using a "what you see is what you get" text editor. This then makes it very easy for a developer to go in and copy-paste the text with little-to-no modification, allowing for effective collaboration across the board.  
+---------------------- 
+ Finally, you can enable Word + PDF formats on your Quarto projects for any end-users who prefer these formats over HTML.  
+---------------------- 
+ Once we had the right tools, resources, and help that we needed, we were able to successfully convert our "User Guide" from Word to Quarto, and we now have documentation that feels amazing to developers and users alike.
+
+Eric, who's a developer, appreciates how easy it is to automatically generate our documentation in three different formats using just a single commit, and Sylvie, who's an end-user of the documentation, appreciates that Quarto websites are easy and pleasant to use, and that creating issues whenever there are typos is straightforward.  
+---------------------- 
+ At Statistics Canada more broadly, Quarto is now a pretty popular tool. Not only has our team continued to use Quarto for any new projects we start, but other teams have started to adopt it as well. 
+
+For example, the website for Statistics Canada's R and Python User Group was recently converted from Hugo to Quarto. 
+---------------------- 
+ Resources for teaching people about R and Databricks have also been created using Quarto.  
+---------------------- 
+ And at the individual level, analysts have started using Quarto's revealjs format to create stunning presentations.   
+---------------------- 
+With these tips and tricks, I hope you're able to have a successful project, whether that's adopting Quarto, or completing your own DIY. 
+---------------------- 
+Thank you!

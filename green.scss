@@ -1,0 +1,453 @@
+/*-- scss:defaults --*/
+
+$theme-light-green: #c1ff72;
+$theme-medium-green: #00bf63;
+$theme-dark-green: #0c5f52;
+$theme-light-blue: #b6f4ff;
+$theme-light-red: #ef8f8f;
+$theme-black: #000000;
+$theme-white: #ffffff;
+
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Amatic+SC:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@700&family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Linear+B&display=swap');
+
+$body-bg: $theme-white;
+$link-color: $theme-medium-green;
+$link-hover-color: $theme-light-green;
+$code-color: $theme-medium-green;
+$body-color: $theme-black;
+$selected-text-color: $theme-light-green;
+$presentation-heading-color: $theme-dark-green;
+$presentation-heading-font: 'Anek Bangla', sans-serif;
+$font-family-sans-serif: 'Montserrat', sans-serif;
+$footer-font: 'Noto Sans Linear B', sans-serif;
+$code-block-font-size: 0.8em;
+
+/*-- scss:rules --*/
+
+.footer {
+  p {
+    color: $theme-dark-green;
+    font-size: 1em;
+    font-family: $footer-font;
+  }
+  a {
+    color: $theme-dark-green !important; 
+    font-weight: bold !important;
+    font-family: $footer-font !important;
+  }
+}
+
+::selection {
+    background-color: $selected-text-color !important;
+    color: black !important;
+}
+
+b {
+  color: $link-color !important;  
+}
+
+ul {
+  font-size: 36pt;
+}
+
+p {
+  font-size: 36pt;
+}
+
+.reveal div.sourceCode {
+  border: unset !important;
+}
+
+div.sourceCode {
+  background-color: unset !important;
+}
+
+.center-v {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+@mixin center-text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+@mixin background-full {
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.customshadow {
+  img {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); 
+  }
+}
+
+.custom-highlight1 {
+  mark {
+    background-color: $theme-light-green !important;
+    color: black !important;
+    text-align: center;
+    font-weight: bold;
+    font-size: 50pt;
+  }
+}
+
+.custom-highlight2 {
+  mark {
+    background-color: $theme-light-blue !important;
+    color: black !important;
+    text-align: center;
+    font-weight: bold;
+    font-size: 50pt;
+  }
+}
+
+.custom-highlight3 {
+  mark {
+    background-color: $theme-light-red !important;
+    color: black !important;
+    text-align: center;
+    font-weight: bold;
+    font-size: 50pt;
+  }
+}
+
+.theme-title1 {
+  &:is(.slide-background) {
+    background-image: url('title1.gif');
+    @include background-full;
+  }
+  h2 {
+    text-align: center;
+    font-size: 3em;
+  }
+  h3 {
+    text-align: center;
+    font-size: 2em;
+  }
+}
+
+.theme-title2 {
+  &:is(.slide-background) {
+    background-image: url('title2.svg');
+    @include background-full;
+  }
+  h2 {
+    text-align: center;
+    font-size: 3em;
+    color: white;
+    text-shadow: 1px 1px 3px #0c4B41;
+  }
+  h3 {
+    text-align: center;
+    font-size: 2em;
+  }
+}
+
+.theme-title3 {
+  &:is(.slide-background) {
+    background-image: url('title3.svg');
+    @include background-full;
+  }
+  h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: white;
+    text-shadow: 1px 1px 3px #0c4B41;
+  }
+  h3 {
+    text-align: center;
+    font-size: 2em;
+  }
+  a {
+    color: white;
+  }
+  .custom-code-size {
+    .sourceCode {
+      font-size: 0.9em;
+    } 
+  }
+}
+
+.theme-title4 {
+  &:is(.slide-background) {
+    background-image: url('title4.svg');
+    @include background-full;
+  }
+  h2 {
+    text-align: center;
+    font-size: 3em;
+    color: white;
+    text-shadow: 1px 1px 3px #0c4B41;
+  }
+  h3 {
+    text-align: center;
+    font-size: 2em;
+  }
+}
+
+.theme-title5 {
+  h2 {
+    text-align: center;
+    font-size: 3em;
+    color: white;
+    text-shadow: 1px 1px 3px #0c4B41;
+  }
+  h3 {
+    text-align: center;
+    font-size: 2em;
+  }
+  a {
+    color: $theme-white !important; 
+    font-weight: bold !important;
+  }
+}
+
+.theme-section1 {
+  &:is(.slide-background) {
+    background-image: url('section1.svg');
+    @include background-full;
+  }
+  h2, h3, h4, h5, p, pre, mark {
+    margin-left: 35%;
+    width: 65%;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+  mark {
+    font-size: 48pt;
+  }
+}
+
+.theme-section2 {
+  &:is(.slide-background) {
+    background-image: url('section2.svg');
+    @include background-full;
+  }
+  h2, h3, h4, h5, p, pre {
+    margin-left: 0px;
+    width: 55%;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+}
+
+.theme-section3 {
+  &:is(.slide-background) {
+    background-image: url('section3.svg');
+    @include background-full;
+  }
+  h2, h3, h4, h5, p, pre {
+    margin-left: 0px;
+    width: 65%;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+  .custom-code-size {
+    .sourceCode {
+      font-size: 0.9em;
+    } 
+  }
+}
+
+.theme-section4 {
+  &:is(.slide-background) {
+    background-image: url('section4.svg');
+    @include background-full;
+  }
+  h2, h3, h4, h5, p, pre, mark {
+    margin-left: 35%;
+    width: 65%;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+  mark {
+    font-size: 48pt;
+  }
+}
+
+.theme-section5 {
+  &:is(.slide-background) {
+    background-image: url('section5.svg');
+    @include background-full;
+  }
+  h2, h3, h4, h5, p, pre {
+    margin-left: 0px;
+    width: 55%;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+}
+
+.theme-slide1 {
+  &:is(.slide-background) {
+    background-image: url('slide1.svg');
+    @include background-full;
+  }
+  h2, h3, h4, h5, p, pre {
+    margin-left: 3%;
+  }
+  ul {
+    margin-left: 6%;
+  }
+}
+
+.theme-slide2 {
+  &:is(.slide-background) {
+    background-image: url('slide2.svg');
+    @include background-full;
+  }
+}
+
+.theme-slide3 {
+  &:is(.slide-background) {
+    background-image: url('slide3.svg');
+    @include background-full;
+  }
+  h2, h3, h4, h5, p, pre {
+    margin-left: 7%;
+    width: 90%;
+  }
+  ul {
+    margin-left: 10%;
+  }
+}
+
+.theme-slide4 {
+  &:is(.slide-background) {
+    background-image: url('slide4.svg');
+    @include background-full;
+  }
+}
+
+.theme-slide5 {
+  &:is(.slide-background) {
+    background-image: url('slide5.svg');
+    @include background-full;
+  }
+  h2, h3, h4, h5, p, pre {
+    margin-left: 7%;
+    width: 90%;
+  }
+  ul {
+    margin-left: 10%;
+  }
+}
+
+.theme-slide6 {
+  &:is(.slide-background) {
+    background-image: url('slide6.svg');
+    @include background-full;
+  }
+  h2, h3, h4, h5, p, pre {
+    margin-top: 3%;
+  }
+}
+
+.theme-slide7 {
+  &:is(.slide-background) {
+    background-image: url('slide7.svg');
+    @include background-full;
+  }
+}
+
+.theme-slide8 {
+  &:is(.slide-background) {
+    background-image: url('slide8.svg');
+    @include background-full;
+  }
+  h2, h3, h4, h5, p, pre {
+    margin-left: 5%;
+    margin-top: 2%;
+    width: 90%;
+  }
+  ul {
+    margin-left: 8%;
+  }
+  .custom-code-size {
+    .sourceCode {
+      font-size: 0.8em;
+    } 
+  }
+}
+
+.theme-slide9 {
+  &:is(.slide-background) {
+    background-image: url('slide9.svg');
+    @include background-full;
+  }
+}
+
+.theme-slide10 {
+  &:is(.slide-background) {
+    background-image: url('slide10.svg');
+    @include background-full;
+  }
+  h2, h3, h4, h5, p, pre {
+    margin-left: 4%;
+    margin-top: 2%;
+  }
+  ul {
+    margin-left: 7%;
+  }
+}
+
+.theme-slide11 {
+  &:is(.slide-background) {
+    background-image: url('slide11.svg');
+    @include background-full;
+  }
+}
+
+.theme-slide12 {
+  &:is(.slide-background) {
+    background-image: url('slide12.svg');
+    @include background-full;
+  }
+}
+
+.theme-slide13 {
+  &:is(.slide-background) {
+    background-image: url('slide13.svg');
+    @include background-full;
+  }
+  h2, h3, h4, h5, p, pre {
+    margin-left: 4%;
+    margin-top: 4%;
+  }
+  ul {
+    margin-left: 7%;
+  }
+}
+
+.theme-slide14 {
+  &:is(.slide-background) {
+    background-image: url('slide14.svg');
+    @include background-full;
+  }
+}

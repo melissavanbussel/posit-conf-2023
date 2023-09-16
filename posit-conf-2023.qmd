@@ -1,0 +1,1312 @@
+---
+format: 
+  revealjs: 
+    theme: green.scss
+    width: 1280
+    height: 720
+    footer: "Slides: [melissavanbussel.quarto.pub/posit-conf-2023/](https://melissavanbussel.quarto.pub/posit-conf-2023/)  •  YouTube: [@ggnot2](https://www.youtube.com/@ggnot2)  •  Questions?: [pos.it/slido-IJ](https://pos.it/slido-IJ)"
+    include-after-body: clean_title_page.html
+highlight-style: "ayu-mirage"
+---
+
+## {.theme-title1 .center}
+
+<br>
+<br>
+<br>
+<br>
+
+<h3><span style="text-shadow: 2px 2px 3px #0c4B41;">Melissa Van Bussel</span></h3>
+
+## Who am I? {.theme-slide1}
+
+* Melissa Van Bussel, Analyst at Statistics Canada (official statistical agency of Canada)
+* I also make YouTube videos ([@ggnot2](https://wwww.youtube.com/@ggnot2)) about R programming 
+
+::: {data-id="myimg1" style="position: fixed; bottom: 10%; left: 5%;"}
+
+<img src="images/statcan_logo.png" width="50%">
+
+:::
+
+:::{.notes}
+
+My name is Melissa Van Bussel, and I'm an Analyst at Statistics Canada, which is the official statistical agency of Canada.
+
+:::
+
+## 
+
+![](images/word_to_quarto.svg){fig-align="center"}
+
+::: footer
+
+:::
+
+:::{.notes}
+
+Today, I'll be talking about how my team converted our documentation to Quarto. Doing this conversion was definitely a journey...
+
+:::
+
+## 
+
+![](images/word_to_quarto_long.svg){fig-align="center"}
+
+::: footer
+
+:::
+
+:::{.notes}
+
+and not all journeys go according to plan.
+
+Before I get into the details of how we did this conversion, I want to start by sharing a story about another journey that didn't go according to plan. 
+
+:::
+
+## The DIY-era of the pandemic
+
+<div class="customshadow">
+
+![](images/home_depot_article.png)
+
+</div>
+
+::: footer
+
+:::
+
+:::{.notes}
+
+I want to take you back to the DIY-era of the COVID-19 pandemic.
+
+:::
+
+## We decided to build an outdoor couch...
+
+<div class="customshadow">
+
+<center>
+![](images/blueprint.png){width="45%"}
+</center>
+
+</div>
+
+:::{.notes}
+
+During that time, my housemate and I decided to build our own outdoor couch. We found this template online, which looked doable.
+
+:::
+
+## {.theme-slide2}
+
+* We bought the wood and paid the <b>$85</b> delivery fee
+
+. . .
+
+* We quickly realized that the saw we had wasn't exactly going to <b>"cut it"</b>
+
+. . .
+
+::: {style="position: fixed; bottom: 3%; left: 40%;"}
+
+<div class="customshadow">
+<img src="images/hand_saw.jpg" width="35%">
+</div>
+
+:::
+
+:::{.notes}
+
+We bought the wood from the blueprint and coughed up the $85 Home Depot delivery fee because we didn't have a car that would fit all the wood.
+
+[increment]
+
+But once the wood was delivered, we quickly realized that the saw we had wasn't exactly cut out for the job.
+
+[increment]
+
+:::
+
+## {.theme-slide3}
+
+<div class="custom-highlight1">
+
+<center>
+<mark>We needed to use a better saw.</mark>
+</center>
+
+</div>
+
+<center>
+<div class="customshadow">
+<img src="images/circular_saw.jpg" width="70%">
+</div>
+</center>
+
+:::{.notes}
+
+So, we ended up needing to borrow a better saw from a family friend. This made everything *so* much more efficient, 
+
+:::
+
+## {auto-animate=true auto-animate-easing="ease-in-out"}
+
+<center>
+![](images/empty_battery.svg){width="30%"}
+</center>
+
+<center>
+<div class="customshadow">
+![](images/half_couch.jpg){width="40%"}
+</div>
+</center>
+
+::: {data-id="box2" auto-animate-delay="0.1" style="background: #3fb618; width: 215px; height: 100px; margin: 10px; border-radius: 10px; position: fixed; top: 10%; left: 40%;"}
+:::
+
+:::{.notes}
+
+and we managed to finish building the couch! 
+
+:::
+
+## {auto-animate=true auto-animate-easing="ease-in-out"}
+
+<center>
+![](images/empty_battery.svg)
+</center>
+
+::: {data-id="box2" style="background: #3fb618; width: 370px; height: 300px; border-radius: 30px; position: fixed; top: 30%; left: 21%;"}
+:::
+
+:::{.notes}
+
+Or so we thought. 
+
+:::
+
+##
+
+<div class="customshadow">
+
+<center>
+![](images/one_arm.png){width="50%"}
+</center>
+
+</div>
+
+::: footer
+
+:::
+
+:::{.notes}
+
+We then realized we had actually only purchased half of the wood that we needed.
+
+It turns out that the instructions that we'd been looking at were actually only for the part of the couch that's missing an arm. 
+
+:::
+
+## {.theme-slide5}
+
+<div class="custom-highlight2">
+
+<center>
+<mark>We purchased more wood.</mark>
+</center>
+
+</div>
+
+<center>
+<div class="customshadow">
+<img src="images/order_summary.svg" width="70%">
+</div>
+</center>
+
+:::{.notes}
+
+So, we headed back to Home Depot and we bought the rest of the wood that we needed.
+
+:::
+
+## There was just one problem left... {.theme-slide4}
+
+. . .
+
+* We still didn't have a car that could fit the wood
+
+. . .
+
+* Didn't want to pay the <b>$85</b> delivery fee again
+
+:::{.notes}
+
+There was just one problem left. 
+
+[increment]
+
+We *still* didn't have a car that could fit the wood in it. 
+
+[increment]
+
+We had paid the $85 delivery fee the first time, but we really didn't want to pay that again.
+
+:::
+
+## {.theme-slide6}
+
+<div class="custom-highlight3">
+
+<center>
+<mark>We borrowed a truck from a friend.</mark>
+</center>
+
+</div>
+
+<center>
+<div class="customshadow">
+<img src="images/pickup_truck.png" width="70%">
+</div>
+</center>
+
+:::{.notes}
+
+So, we needed to borrow a truck from a friend in order to get the rest of the wood home. 
+
+:::
+
+## {.theme-slide7}
+
+<center>
+Once we had the right <span style="background-color: #c1ff72">tools</span>, <span style="background-color: #b6f4ff">resources</span>, and <span style="background-color: #ef8f8f">help</span> that we needed, we successfully finished the couch! 
+</center>
+
+<center>
+<div class="customshadow">
+![](images/finished_couch.jpg){width="55%"}
+</div>
+</center>
+
+:::{.notes}
+ 
+Once we had the right tools, and all of the resources and help that we needed, we were able to successfully finish building the couch. 
+
+:::
+
+## {.theme-slide7}
+
+<center>
+Once we had the right <span style="background-color: #c1ff72">tools</span>, <span style="background-color: #b6f4ff">resources</span>, and <span style="background-color: #ef8f8f">help</span> that we needed, <b>we successfully finished the couch!</b> 
+</center>
+
+<center>
+<div class="customshadow">
+![](images/finished_couch.jpg){width="55%"}
+</div>
+</center>
+
+:::{.notes}
+ 
+This journey full of unexpected challenges...
+
+:::
+
+## {.theme-slide7}
+
+<center>
+Once we had the right <span style="background-color: #c1ff72">tools</span>, <span style="background-color: #b6f4ff">resources</span>, and <span style="background-color: #ef8f8f">help</span> that we needed, <b>we successfully<span style="text-decoration:line-through; color:#d86666"> finished the couch!</span><br><span style="color:#d86666">converted our documentation to Quarto!<span></b> 
+</center>
+
+<center>
+![](images/word_to_quarto_long.svg){width="55%"}
+
+:::{.notes}
+ 
+is very similar to the journey that my team had when converting our documentation to Quarto.
+
+:::
+
+## {.theme-slide8}
+
+* Our <b>journey</b> to Quarto
+
+. . .
+
+* <b>Challenges</b> faced
+
+. . .
+
+* <b>Tips</b> and <b>tricks</b>
+
+. . .
+
+<br>
+<center>
+
+<div class="custom-highlight1"><mark>It's not just about documentation :)</mark></div>
+
+</center>
+
+:::{.notes}
+ 
+Today, I'll share that journey with you, 
+
+[increment]
+
+as well as the challenges we faced along the way. 
+
+[increment]
+
+I'll also share some tips and tricks we used, 
+
+[increment]
+
+all of which are applicable to any kind of Quarto project.
+
+:::
+
+## Some context... {.theme-title2 .center}
+
+::: footer
+
+:::
+
+:::{.notes}
+
+I'm going to start by providing some necessary context.
+
+:::
+
+## {.theme-slide4 .center}
+
+<h2>My team publishes statistics related to education in Canada.</h2>
+
+:::{.notes}
+
+I work on a team at Statistics Canada that publishes statistics related to education in Canada.
+
+:::
+
+##
+
+![](images/jargon.svg){fig-align="center"}
+
+::: footer
+
+:::
+
+:::{.notes}
+
+There's a lot of subject-matter and domain knowledge as well as methodological concepts that need to be documented somewhere.
+
+:::
+
+##
+
+<h2>"We converted our documentation to Quarto"</h2>
+
+:::{.notes}
+
+This leads to an important distinction in the title of my talk.
+
+:::
+
+##
+
+<h2><span style="color: #dff1ee">"We converted our </span>documentation<span style="color: #dff1ee"> to Quarto"</span></h2>
+
+<center>
+![](images/pkgdown.svg){width="80%"}
+</center>
+
+:::{.notes}
+
+When I say the word "documentation", I'm *not* talking about our package documentation.
+
+:::
+
+##
+
+![](images/jargon.svg){fig-align="center"}
+
+::: footer
+
+:::
+
+:::{.notes}
+
+I'm talking about documentation that defines terms like these. It's really the subject matter knowledge documentation rather than package documentation.
+
+:::
+
+## {background-color="white" background-image="images/confluence.svg"}
+
+::: footer
+
+:::
+
+:::{.notes}
+
+I'm talking about the sort of information that someone would put in a wiki or on confluence, or something like that. 
+
+:::
+
+## Our "User Guide" before Quarto {.theme-slide11}
+
+It was <b>slow</b> to scroll.
+
+::: {style="position: fixed; bottom: 5%; left: 15%;"}
+
+<img src="images/word_count.svg" width="80%">
+
+:::
+
+:::{.notes}
+
+Whatever you call yours, we call ours a "user guide", and for us, it was previously stored as a one hundred and twenty page Word document. Scrolling through the document was slow...
+
+:::
+
+## Our "User Guide" before Quarto {.theme-slide11}
+
+Only <b>one</b> person could edit it at a time.
+
+::: {style="position: fixed; bottom: 5%; left: 15%;"}
+
+<img src="images/word_edit.svg" width="80%">
+
+:::
+
+:::{.notes}
+
+...And only one person could edit it at a time, which was a significant challenge for our large team. 
+
+:::
+
+## Our "User Guide" before Quarto {.theme-slide11}
+
+Version control was limited to <b>"Track Changes".</b>
+
+::: {style="position: fixed; bottom: 5%; left: 15%;"}
+
+<img src="images/track_changes.svg" width="80%">
+
+:::
+
+:::{.notes}
+
+Our version control was limited to the "Track Changes" feature in Word, which made it challenging to follow updates over time.
+
+:::
+
+## In walks Quarto {.theme-slide10}
+
+* We discovered Quarto, which would address the challenges
+
+. . .
+
+* We were <b>total</b> Quarto beginners
+
+:::{.notes}
+
+After last year's conference, we discovered Quarto, which would address those challenges that we were facing with Word.
+
+[increment]
+
+When we started this conversion, we were all TOTAL beginners with Quarto. 
+
+:::
+
+## {.theme-section1}
+
+<div class="custom-highlight1"><mark>Tip #1: Use the right tools</mark></div>
+
+<br>
+
+![](images/circular_saw.jpg)
+<span style="color:white">Placeholder text</span>
+
+::: footer
+
+:::
+
+:::{.notes}
+
+This meant that, in order for us to effectively complete this task, we needed to use the right tools. When you're working with Quarto, there are many tools that you can use to make your life easier.
+
+:::
+
+## {background-video="images/txt_to_quarto.mp4"}
+
+:::{.notes}
+
+If you have existing text that you're looking to convert to Quarto, 
+
+:::
+
+## {background-video="images/txt_md_quarto.mp4"}
+
+:::{.notes}
+
+A good first step is to turn the text into markdown if it's not already in that format.
+
+:::
+
+## A really good <br>starting point: {.theme-section3}
+
+<br>
+<br>
+
+<div class="custom-code-size">
+```{r}
+#| eval: false
+#| echo: true
+library(rmarkdown)
+pandoc_convert("input.docx", to = "md")
+```
+</div>
+
+<br>
+<br>
+
+Turns your plain text into `.md` format
+
+::: footer
+
+:::
+
+:::{.notes}
+
+We used the pandoc_convert function from the rmarkdown package to automatically convert our word document to a markdown file, which gave us a great starting point. 
+
+:::
+
+## Still just a starting point, though {.theme-slide12}
+
+* Other formatting changes were needed
+* Custom keyboard shortcuts are your friend
+
+::: {style="position: fixed; bottom: 0%; left: 15%;"}
+
+<img src="images/link_unclicked.svg" width="80%">
+
+:::
+
+:::{.notes}
+
+Although this was a great starting point, there were still a lot of formatting changes that we needed to make. 
+
+:::
+
+## Still just a starting point, though {.theme-slide12}
+
+* Other formatting changes were needed
+* Custom keyboard shortcuts are your friend
+
+::: {style="position: fixed; bottom: 0%; left: 15%;"}
+
+<img src="images/link_clicked.svg" width="80%">
+
+:::
+
+:::{.notes}
+
+In order to make this part of the job easier, we set up custom keyboard shortcuts in our IDEs. For example, we set up a shortcut that made it easier to convert URLs into valid Markdown links.
+
+:::
+
+## Code Snippets {.theme-slide8}
+
+* A great way to <b>automate</b> code insertion for things you type frequently (think `:::`)
+* To modify in RStudio:
+
+```{r}
+#| echo: true
+#| eval: false
+Tools > Global Options > Code > Edit Snippets...
+```
+
+:::{.notes}
+
+If you're using RStudio as your IDE, you can also set up custom code snippets, which are a great way to automate code insertion for anything you find yourself typing very frequently.
+
+:::
+
+## Code Snippets {.theme-slide8}
+
+* Useful for Quarto features that take a <b>long time</b> to type, e.g.,
+
+<div class="custom-code-size">
+```c
+:::: {.columns}
+
+::: {.column width="50%"}
+Left column
+:::
+
+::: {.column width="50%"}
+Right column
+:::
+
+::::
+```
+</div>
+
+::: footer
+
+:::
+
+:::{.notes}
+
+This is GREAT for when you want to include cool Quarto features that take a bit longer to type out. 
+
+:::
+
+## Code Snippets {.theme-slide8}
+
+* Tom Mock has put together a [GitHub Gist](https://gist.github.com/jthomasmock/11acebd4448f171f786e01397df34116) that contains snippets that are helpful for working with Quarto
+* Can use for either RStudio or VS Code
+
+<center>
+![](images/rstudio_vscode.svg){width="40%"}
+</center> 
+
+:::{.notes}
+
+I really recommend checking out Tom Mock's GitHub Gist that contains some code snippets that are helpful for working with Quarto. The snippets are provided for both RStudio and VS Code.
+
+:::
+
+## Tricky syntax {.theme-slide2}
+
+* Markdown tables in particular have syntax that's hard to type out manually
+
+::: {style="position: fixed; bottom: 10%; left: 15%;"}
+
+<img src="images/visual_editor.gif" width="90%">
+
+:::
+
+:::{.notes}
+
+For any syntax that's trickier to use, there are ways to avoid typing things out manually. Personally, I find the syntax for markdown tables to be extremely finicky. RStudio's visual editor comes in handy for this, or you can also find similar tools online if you're using a different IDE. 
+
+:::
+
+## Generative AI {.theme-slide3}
+
+* [ChatGPT](https://chat.openai.com/) and [GitHub CoPilot](https://github.com/features/copilot) (somewhat) know Quarto syntax
+
+. . .
+
+* Great use case: HTML + CSS
+
+. . .
+
+::: {style="position: fixed; bottom: -10%; left: 15%;"}
+
+<img src="images/aesthetic.svg" width="80%">
+
+:::
+
+:::{.notes}
+
+In situations like these, another great option is generative AI. Both ChatGPT and GitHub CoPilot have a decent knowledge of Quarto syntax
+
+[increment]
+
+and an even stronger understanding of HTML and CSS. You can use generative AI for a variety of use cases, but you'll find it particularly helpful for making your Quarto projects more 
+
+[increment]
+
+aesthetic.
+
+:::
+
+## {.center .theme-slide3}
+
+<center>
+{{< video https://www.youtube.com/watch?v=tqfOgWr0PAY width="1000" height="600">}}
+</center>
+
+:::{.notes}
+
+If you're interested in trying these tools out, I have a video on my YouTube channel that goes over how to use ChatGPT and GitHub CoPilot as an R programmer
+
+:::
+
+## Automating {.theme-slide1}
+
+* Use Git for proper <b>version control</b>
+
+. . .
+
+* Use GitHub Actions or GitLab CI/CD Pipelines to automate the publishing of your content
+
+. . .
+
+* Every time you `git commit`, everything updates automatically {{< fa wand-magic-sparkles >}}
+
+:::{.notes}
+
+Once you're done with *creating* the content, there's something you can do to make *maintaining* the content easier. You can use git for proper version control, 
+
+[increment]
+
+and you can use either GitHub Actions or GitLab pipelines to automate the publishing of your content. 
+
+[increment]
+
+This will make it so that, every single time you make a commit using git, the published version of your content will be automatically updated without you having to do anything. 
+
+:::
+
+## {.theme-title4 .center}
+
+<center>
+{{< video https://www.youtube.com/watch?v=_QQGW_RUw_I width="1000" height="600">}}
+</center>
+
+:::{.notes}
+
+I promise this is easier than it sounds, and I've got videos on my YouTube channel that provide examples of Quarto pipelines using GitHub Actions...
+
+:::
+
+## {.theme-title4 .center}
+
+<center>
+{{< video https://www.youtube.com/watch?v=59gbgBqlaJc width="1000" height="600">}}
+</center>
+
+:::{.notes}
+
+and GitLab Pipelines.
+
+:::
+
+## {.theme-title4 .center}
+
+<center>
+{{< video https://www.youtube.com/watch?v=nuYNCPRf8Js width="1000" height="600">}}
+</center>
+
+:::{.notes}
+
+Or, if you prefer to avoid the whole pipeline thing altogether and you're just looking for somewhere to host your Quarto content for free, I've also got a video on how to use Quarto Pub to publish a website in under a minute.
+
+:::
+
+## {.theme-section2}
+
+<div class="custom-highlight3"><mark>Tip #2: Ask for help\n</mark></div><div class="custom-highlight3"><mark>when you need it</mark></div>
+
+<br>
+
+![](images/pickup_truck.png)
+
+::: footer
+
+:::
+
+:::{.notes}
+
+There are SO many great tools that exist for Quarto, but there's still going to be times when you need a little extra help. It's likely that you'll eventually bump into something you want to do that you don't know how to do. When you bump into something like this, you can ask the R community for help.
+
+:::
+
+## Order of operations {.theme-slide10}
+
+<center>
+![](images/blank_stairs.svg){width="80%"}
+<center>
+
+:::{.notes}
+
+When it comes to asking Quarto questions, there's an order of operations I like to follow.
+
+:::
+
+## Order of operations {.theme-slide10}
+
+<center>
+![](images/stair_one.svg){width="80%"}
+<center>
+
+:::{.notes}
+
+Of course, you should always start by checking the documentation, and Googling your problem to see if anyone's already made a video, blog post, or posted on stack overflow about it.
+
+:::
+
+## Order of operations {.theme-slide10}
+
+<center>
+![](images/stair_two.svg){width="80%"}
+<center>
+
+:::{.notes}
+
+If you can't find what you're looking for, you can reach out to your friends or colleagues, including the friends you make while at conf. 
+
+You can also reach out to your local R user group or R-Ladies chapter if you have one.
+
+:::
+
+## {background-image="images/networking_event_wide.png"}
+
+::: footer
+
+:::
+
+:::{.notes}
+
+In fact, if there's anyone in the audience from Ottawa, the R-Ladies Ottawa Chapter will be having our first event in 3 years coming up on September 26th.
+
+:::
+
+## Order of operations {.theme-slide10}
+
+<center>
+![](images/stair_three.svg){width="80%"}
+<center>
+
+:::{.notes}
+
+In our case last summer, though, we were among the first to be using Quarto in our area, so we sometimes needed to seek help using other avenues.
+
+:::
+
+## {.center}
+
+<center>
+<div class="customshadow">
+![](images/twitter.svg)
+</div>
+</center>
+
+:::{.notes}
+
+Twitter is a great place for this, especially if you use the hashtags #rstats and #QuartoPub.
+
+For example, I tweeted *this*, asking if there's a clever way to render Quarto documents to PDF if the HTML version contains gifs. 
+
+:::
+
+## Answer: make the `.gif` conditional {.center .theme-slide11}
+
+```html
+::: {.content-visible when-format="html"}
+
+![](my_animated_image.gif)
+
+:::
+```
+
+:::{.notes}
+
+Within an hour, someone had responded to my question, explaining that there's a way to make content visible or invisible depending on the format of the output. 
+
+:::
+
+
+## Order of operations {.theme-slide10}
+
+<center>
+![](images/stair_three.svg){width="80%"}
+<center>
+
+:::{.notes}
+
+An alternative way you can ask the R community your Quarto questions is by using the Q+A feature on the quarto-cli GitHub repo.
+
+:::
+
+## The [Q+A feature](https://github.com/quarto-dev/quarto-cli/discussions/categories/q-a) on the `quarto-cli` repo {.theme-slide12 .center}
+
+<div class="customshadow">
+![](images/q_and_a.png)
+</div>
+
+::: footer
+
+:::
+
+:::{.notes}
+
+This repository is where the development for Quarto happens. When you post a question in the Q+A, it might be answered by members of the R community, or possibly even a member of the Quarto development team. 
+
+If you *are* using the Q+A, though, make sure to be a good neighbour. Always check the Q+A first to see if there's already been a similar question asked by someone else. And while you're doing that, you can help answer any questions that you know the answer to.
+
+:::
+
+## The [Q+A feature](https://github.com/quarto-dev/quarto-cli/discussions/categories/q-a) on the `quarto-cli` repo {.theme-slide12 .center}
+
+<center>
+<div class="customshadow">
+![](images/q_and_a_answered.png)
+</div>
+</center>
+
+::: footer
+
+:::
+
+:::{.notes}
+
+I've personally found the Q+A to be an incredible resource. There's been times where I've been stumped on syntax for multiple days, and I feel *just about* ready to give up, and I post the question on the Q+A and am able to get an answer within the same day.
+
+For example, we needed to create a bilingual Quarto website, where the user would be able to switch between English + French. To do this, we created a Quarto project that had an English folder and a French folder with identical file structures. Using the Quarto documentation, we found a way to create a toggle that would allow the user to switch between the two languages. The only problem is that the button would bring the user back to the home page when they switched languages, rather than displaying the current page in the opposite language.
+
+:::
+
+## {background-image="images/translate.svg"}
+
+::: footer
+
+:::
+
+:::{.notes}
+
+We asked about this in the Quarto Q+A, and it was suggested that we use Javascript to create a button that would modify the URL when clicked.
+
+After following an example that was shared in the comments, we now have a fully functional bilingual site.
+
+:::
+
+## When all else fails... {.theme-slide13}
+
+* There might be features that aren't yet implemented
+
+. . .
+
+* There may be a clever workaround
+
+. . .
+
+* If not, see if there's already a [feature request](https://github.com/quarto-dev/quarto-cli/discussions/categories/feature-requests) (upvote if so, create one if not)
+
+:::{.notes}
+
+As you start to become more and more advanced with Quarto, you may bump into questions that are unanswerable. In other words, you might find yourself trying to do something that isn't yet implemented in Quarto. After all, it's still pretty new!
+
+[increment]
+
+If this is the case, there's a good chance that someone from the Quarto development team will comment on your Q+A indicating this, OR, suggesting a clever workaround. You can also check to see if there's a feature request for whatever you're trying to do. 
+
+[increment]
+
+Personally, I find this to be one of the most exciting parts about using Quarto -- even as an end-user, you could have the opportunity to shape the future of Quarto!
+
+:::
+
+## {.theme-section4}
+
+<div class="custom-highlight2"><mark>Tip #3: Make sure that</mark></div><div class="custom-highlight2"><mark>you have all of the</mark></div><div class="custom-highlight2"><mark>resources (support)</mark></div><div class="custom-highlight2"><mark>that you need.</mark></div>
+
+::: {style="position: fixed; bottom: -2%;"}
+
+<div class="customshadow">
+<img src="images/order_summary.svg" width="70%">
+</div>
+
+:::
+
+::: footer
+
+:::
+
+:::{.notes}
+
+Once we had a working first draft, it was time to share our project more broadly with others. This is where we faced our third challenge, and where you're likely to face a challenge too. 
+
+Although *you* might be super passionate about Quarto and confident in its potential, it's still a very new product, and not everyone will be on-board on day one.
+
+Getting support for Quarto *can* be a challenge, and the approach you take may depend on your target audience.
+
+:::
+
+## Show, not tell {.center .theme-title5 background-image="images/title5.png"} 
+
+:::{.notes}
+
+With management, a good strategy is to *Show, not tell*. Rather than starting a conversation about quarto, create a cool project *using* Quarto that will WOW people. When someone inevitably asks how you made it, this is when you can explain what Quarto is. 
+
+:::
+
+::: footer
+
+:::
+
+## IT support {.theme-slide5}
+
+* Quarto is still fairly new, so it may not be available at your workplace
+
+. . .
+
+* If this is the case, see if you can use a different IDE, or consider using GitLab Pipelines or GitHub Actions with a `rocker` image
+
+```yaml
+my-job:
+  image: rocker/r-ver:4.3
+```
+
+:::{.notes}
+
+Depending on your workplace, you may have the additional challenge of Quarto not currently being on the list of installable software. 
+
+[increment]
+
+In our case last summer, we weren't able to use a version of RStudio that comes pre-packaaged with Quarto. Instead, we used VS Code as an editor while we waited for our RStudio version to be updated. Another option is to use rocker, which is a Docker image that comes pre-packaged with Quarto.
+
+:::
+
+## Colleagues with Git/Markdown experience {.theme-slide14}
+
+<center>
+<div class="customshadow">
+
+![](images/cloneable_repo.PNG)
+
+</div>
+</center>
+
+::: footer
+
+:::
+
+:::{.notes}
+
+In order to get colleagues on board with Quarto, I highly suggest creating templates that you or anyone else can use as a starting point for their project. This will prevent you from needing to reinvent the wheel every time, and and will reduce the barriers that others might face when trying to learn a new tool. 
+
+:::
+
+## Colleagues with Git/Markdown experience {.theme-slide14}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+<center>
+<div class="customshadow">
+
+![](images/awesome_quarto.png)
+
+</div>
+</center>
+
+The [awesome quarto](https://github.com/mcanouil/awesome-quarto) repo contains many pre-made templates, <b>OR</b>
+
+:::
+
+::: {.column width="50%"}
+
+<center>
+<div class="customshadow">
+
+![](images/title_slide.png)
+
+</div>
+</center>
+
+You can create your own custom templates 
+
+:::
+
+::::
+
+
+:::{.notes}
+
+You can either start with a pre-existing template, for example from the awesome Quarto repo on GitHub, OR you can create your own.
+
+:::
+
+## Colleagues without Git + MD experience
+
+```{yaml}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "9"
+project:
+  type: book
+  output-dir: public
+
+book:
+  title: "Title goes here"
+  author: "Your names here"
+  repo-url: https://wwww.your_url_here.com
+  repo-actions: [issue, source]
+  downloads: [pdf, docx]
+```
+
+:::{.notes}
+
+For colleagues that don't have experience with Git or Markdown, a great way to enable collaboration is to use the "Report issue" feature on your Quarto projects. 
+
+:::
+
+## Colleagues without Git + MD experience
+
+:::: {.columns}
+
+::: {.column width="20%"}
+
+<div class="customshadow">
+![](images/report_issue.svg)
+</div>
+
+:::
+
+::: {.column width="80%"}
+
+<div class="customshadow">
+![](images/report_issue.gif)
+</div>
+
+
+:::
+
+::::
+
+:::{.notes}
+
+With just a single click of a button, a new issue can be created on the project's GitLab or GitHub repo and the necessary changes can be described in plain text, using a "what you see is what you get" text editor. This then makes it very easy for a developer to go in and copy-paste the text with little-to-no modification, allowing for effective collaboration across the board. 
+
+:::
+
+## End-users
+
+Enable PDF and/or Word format downloads:
+
+```{yaml}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "10"
+project:
+  type: book
+  output-dir: public
+
+book:
+  title: "Title goes here"
+  author: "Your names here"
+  repo-url: https://wwww.your_url_here.com
+  repo-actions: [issue, source]
+  downloads: [pdf, docx]
+```
+
+:::{.notes}
+
+Finally, you can enable Word + PDF formats on your Quarto projects for any end-users who prefer these formats over HTML. 
+
+:::
+
+## {background-image="images/testimonials.svg" background-color="#0c5f52"}
+
+::: footer
+
+:::
+
+:::{.notes}
+
+Once we had the right tools, resources, and help that we needed, we were able to successfully convert our "User Guide" from Word to Quarto, and we now have documentation that feels amazing to developers and users alike.
+
+Eric, who's a developer, appreciates how easy it is to automatically generate our documentation in three different formats using just a single commit, and Sylvie, who's an end-user of the documentation, appreciates that Quarto websites are easy and pleasant to use, and that creating issues whenever there are typos is straightforward. 
+
+:::
+
+
+## {background-image="images/brittny.svg"}
+
+::: footer
+
+:::
+
+:::{.notes}
+
+At Statistics Canada more broadly, Quarto is now a pretty popular tool. Not only has our team continued to use Quarto for any new projects we start, but other teams have started to adopt it as well. 
+
+For example, the website for Statistics Canada's R and Python User Group was recently converted from Hugo to Quarto.
+
+:::
+
+## {background-image="images/alexandre.svg"}
+
+::: footer
+
+:::
+
+:::{.notes}
+
+Resources for teaching people about R and Databricks have also been created using Quarto. 
+
+:::
+
+## {background-image="images/hyeongsuk.svg"}
+
+::: footer
+
+:::
+
+:::{.notes}
+
+And at the individual level, analysts have started using Quarto's revealjs format to create stunning presentations.  
+
+:::
+
+## {.theme-slide7}
+
+<center>
+Once we had the right <span style="background-color: #c1ff72">tools</span>, <span style="background-color: #b6f4ff">resources</span>, and <span style="background-color: #ef8f8f">help</span> that we needed, <b>we successfully<span style="text-decoration:line-through; color:#d86666"> finished the couch!</span><br><span style="color:#d86666">converted our documentation to Quarto!<span></b> 
+</center>
+
+<center>
+<div class="customshadow">
+![](images/finished_couch.jpg){width="55%"}
+</div>
+</center>
+
+::: footer
+
+:::
+
+:::{.notes}
+
+I hope that, with these tips, you can build the couch too!
+
+:::
+
+## Thank you! {.theme-slide10} 
+
+<span style="color:red">
+{{< fa brands youtube >}}</span> [@ggnot2](https://www.youtube.com/@ggnot2)
+
+{{< fa globe >}} [melissavanbussel.com](https://www.melissavanbussel.com/)
+
+<span style="color:#00ACEE">
+{{< fa brands twitter >}}</span> [@melvanbussel](https://twitter.com/melvanbussel)
+
+<span style="color:#0e76a8">
+{{< fa brands linkedin >}}</span> [@melissavanbussel](https://www.linkedin.com/in/melissavanbussel/)
+
+{{< fa brands github >}} [github.com/melissavanbussel](https://github.com/melissavanbussel)
+
+## Did you like these slides? {.theme-title3}
+
+<br>
+
+You can find the code for this presentation [on my GitHub](https://github.com/melissavanbussel/posit-conf-2023) or you can use this [template](https://github.com/melissavanbussel/quarto-revealjs-abstract-green) I made by running the following in the terminal:
+
+<br>
+
+<div class="custom-code-size">
+```bash
+quarto use template melissavanbussel/quarto-revealjs-abstract-green
+```
+</div>
+
+::: footer
+
+:::
