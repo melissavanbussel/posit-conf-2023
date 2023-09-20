@@ -21,7 +21,7 @@ highlight-style: "ayu-mirage"
 ## Who am I? {.theme-slide1}
 
 * Melissa Van Bussel, Analyst at Statistics Canada (official statistical agency of Canada)
-* I also make YouTube videos ([@ggnot2](https://wwww.youtube.com/@ggnot2)) about R programming 
+* I also make YouTube videos ([@ggnot2](https://www.youtube.com/@ggnot2)) about R programming 
 
 ::: {data-id="myimg1" style="position: fixed; bottom: 10%; left: 5%;"}
 
